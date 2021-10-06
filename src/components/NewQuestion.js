@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import { connect } from 'react-redux'
 import { Redirect } from 'react-router-dom'
+import { handleAddQuestion } from '../actions/questions'
 
 class NewQuestion extends Component {
 	state = {
@@ -23,6 +24,19 @@ class NewQuestion extends Component {
 	}
 	handleSubmit = (e) => {
 		e.preventDefault()
+
+		const {firstText, secondText} = this.state
+		const {dispatch, id} = this.props
+		console.log('id is :', id)
+		console.log('firstText is: ', firstText)
+		dispatch(handleAddQuestion(firstText, secondText))
+
+		//console.log('nex tweet: ',text)
+
+		this.setState(() => ({
+			firstText: '',
+			secondText: '',
+		}))
 	}
 
 	render() {
