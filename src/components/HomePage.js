@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import Question from './Question'
+import AnsweredQuestions from './AnsweredQuestions'
 
 class HomePage extends Component {
 	render() {
@@ -21,6 +22,7 @@ class HomePage extends Component {
 }
 
 function mapStateToProps ({ questions }) {
+	console.log("ds")
 	return {
 		questionsIds: Object.keys(questions)
 			.sort((a,b) => questions[b].timestamp - questions[a].timestamp)

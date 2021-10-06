@@ -10,7 +10,7 @@ class Tweet extends Component {
 		const {
 			author, name, avatarURL, timestamp, optionOne, optionTwo
 		} = question
-		console.log(name)
+		//console.log(name)
 		return (
 			<div className='tweet'>
 				<img
@@ -26,7 +26,7 @@ class Tweet extends Component {
 
 function mapStateToProps ({ authedUser, users, questions }, { id }) {
 	const question = questions[id]
-	console.log("hi :", question.optionOne)
+	//console.log("hi :", question.optionOne)
 	return {
 		authedUser,
 		question: question
