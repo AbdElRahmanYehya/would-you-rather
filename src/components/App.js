@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { handleInitialData } from '../actions/shared'
+import HomePage from './HomePage'
+import AnsweredQuestions from './AnsweredQuestions'
 
 
 class App extends Component {
@@ -10,9 +12,18 @@ class App extends Component {
   render() {
     return (
       <div>
-        Starter Code
+        {this.props.loading === true
+          ? null
+          : <AnsweredQuestions />
+        }
       </div>
     )
+  }
+}
+
+function mapStateToProps({ authedUser }) {
+  return {
+    loading: authedUser === null
   }
 }
 
