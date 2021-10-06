@@ -7,6 +7,7 @@ class NewQuestion extends Component {
 	state = {
 		firstText: '',
 		secondText: '',
+		toHome: false,
 	}
 	chenageFirstText = (e) => {
 		const firstText = e.target.value
@@ -36,17 +37,23 @@ class NewQuestion extends Component {
 		this.setState(() => ({
 			firstText: '',
 			secondText: '',
+			toHome: true,
 		}))
 	}
 
 	render() {
-		const {firstText, secondText} = this.state
+		const {firstText, secondText, toHome} = this.state
 		const tweetLeft = 60 - firstText.length
+
+		if (toHome === true) {
+			return <Redirect to='/'/>
+		}
 
 		return (
 			<div>
 				<h3 className='center'>Compose new Question</h3>
 				<form className='new-tweet' onSubmit={this.handleSubmit}>
+					<h3>Would You Rather</h3>
 					<textarea
 						placeholder="Option one?"
 						value = {firstText}

@@ -7,10 +7,9 @@ class UnansweredQuestions extends Component {
 	render() {
 		const { questions } = this.props
 		// bdal el map di n3ml w7da bel questions bs 3shan n3rf hal kol wa7d leh votes wla la2
-		console.log(this.props.questionsIds)
 		return (
 			<div>
-				<h3 className='center'>Answred Questions</h3>
+				<h3 className='center'>Unanswered Questions</h3>
 				<ul className='dashboard-list'>
 					{this.props.questionsIds.map((id) => (
 						<li key={id}>
@@ -24,8 +23,6 @@ class UnansweredQuestions extends Component {
 }
 
 function mapStateToProps ({ authedUser, users, questions }) {
-	console.log("hi :", Object.keys(questions).length)
-
 	const questionsIds = Object.keys(questions)
 	const answeredIds = []
 	for(let i = 0; i < questionsIds.length; i++) {
