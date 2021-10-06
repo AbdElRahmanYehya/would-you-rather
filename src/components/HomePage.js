@@ -2,19 +2,17 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import Question from './Question'
 import AnsweredQuestions from './AnsweredQuestions'
+import UnansweredQuestions from './UnansweredQuestions'
+
 
 class HomePage extends Component {
 	render() {
 		console.log(this.props)
 		return (
 			<div>
-				<h3 className='center'>Your Timeline</h3>
+				<h3 className='center'>All questions</h3>
 				<ul className='dashboard-list'>
-					{this.props.questionsIds.map((id) => (
-						<li key={id}>
-							<Question id={id} />
-						</li>
-					))}
+					<AnsweredQuestions />
 				</ul>
 			</div>
 		)

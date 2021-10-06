@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import Question from './Question'
 
-class AnsweredQuestions extends Component {
+class UnansweredQuestions extends Component {
 	render() {
 		const { questions } = this.props
 		// bdal el map di n3ml w7da bel questions bs 3shan n3rf hal kol wa7d leh votes wla la2
@@ -28,19 +28,21 @@ function mapStateToProps ({ authedUser, users, questions }) {
 	const questionsIds = Object.keys(questions)
 	const answeredIds = []
 	for(let i = 0; i < questionsIds.length; i++) {
+		let flag = 0
 		for (let j = 0; j < questions[questionsIds[i]].optionOne.votes.length; j++) {
 		  if (questions[questionsIds[i]].optionOne.votes[j] === authedUser) {
-		  	console.log("The id abl is: ", questionsIds[i])
-		  	answeredIds.push(questionsIds[i])
+		  	flag = 1
 		  	break;
 		  }
 		}
 		for (let j = 0; j < questions[questionsIds[i]].optionTwo.votes.length; j++) {
 		  if (questions[questionsIds[i]].optionTwo.votes[j] === authedUser) {
-		  	console.log("The id abl is: ", questionsIds[i])
-		  	answeredIds.push(questionsIds[i])
+		  	flag = 1
 		  	break;
 		  }
+		}
+		if (flag === 0) {
+			answeredIds.push(questionsIds[i])
 		}
 	}
 	console.log("bye :", answeredIds)
@@ -51,4 +53,4 @@ function mapStateToProps ({ authedUser, users, questions }) {
 	}
 }
 
-export default connect(mapStateToProps)(AnsweredQuestions)
+export default connect(mapStateToProps)(UnansweredQuestions)
