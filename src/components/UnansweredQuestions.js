@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import Question from './Question'
+import ClosedUnansweredQuestion from './ClosedUnansweredQuestion'
 
 class UnansweredQuestions extends Component {
 	render() {
@@ -13,7 +14,7 @@ class UnansweredQuestions extends Component {
 				<ul className='dashboard-list'>
 					{this.props.questionsIds.map((id) => (
 						<li key={id}>
-							<Question id={id} />
+							<ClosedUnansweredQuestion id={id} />
 						</li>
 					))}
 				</ul>

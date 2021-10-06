@@ -12,7 +12,7 @@ class HomePage extends Component {
 			<div>
 				<h3 className='center'>All questions</h3>
 				<ul className='dashboard-list'>
-					<AnsweredQuestions />
+					<UnansweredQuestions />
 				</ul>
 			</div>
 		)
