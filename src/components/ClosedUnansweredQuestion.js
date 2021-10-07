@@ -13,7 +13,7 @@ class ClosedUnansweredQuestion extends Component {
 	}
 
 	render() {
-		const { question } = this.props
+		const { question, users } = this.props
 		// mfrod nbdl question el t7t b el format da
 		// formatQuestion(question.optionOne, question.optionTwo, question.author)
 		const {
@@ -22,9 +22,9 @@ class ClosedUnansweredQuestion extends Component {
 
 		return (
 			<div className='tweet'>
-				<form className='new-tweet' onSubmit={this.handleSubmit}>
+				<form onSubmit={this.handleSubmit}>
 					<img
-						src={avatarURL}
+						src={users[author].avatarURL}
 						alt={`Avatar of ${author}`}
 						className='avatar'
 					/>
@@ -43,7 +43,8 @@ function mapStateToProps ({ authedUser, users, questions }, { id }) {
 	//console.log("hi :", question.optionOne)
 	return {
 		authedUser,
-		question: question
+		question: question,
+		users
 	}
 }
 

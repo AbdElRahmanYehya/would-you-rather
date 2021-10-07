@@ -21,7 +21,7 @@ class HomePage extends Component {
 		}))
 	}
 
-	showunAnswered = (e) => {
+	showUnanswered = (e) => {
 		e.preventDefault()
 
 		const {dispatch, id} = this.props
@@ -34,14 +34,13 @@ class HomePage extends Component {
 
 	render() {
 		const { answered } = this.state
-		console.log(this.props)
 		return (
 			<div>
 				<h3 className='center'>All questions</h3>
 				<button className='btn' onClick={this.showAnswered}>
 					Answered Questions
 				</button>
-				<button className='btn' onClick={this.showunAnswered}>
+				<button className='btn' onClick={this.showUnanswered}>
 					Unanswered Questions
 				</button>
 				{answered === true
@@ -60,12 +59,4 @@ class HomePage extends Component {
 	}
 }
 
-function mapStateToProps ({ questions }) {
-	console.log("ds")
-	return {
-		questionsIds: Object.keys(questions)
-			.sort((a,b) => questions[b].timestamp - questions[a].timestamp)
-	}
-}
-
-export default connect(mapStateToProps)(HomePage)
+export default connect()(HomePage)
