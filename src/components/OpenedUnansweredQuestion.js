@@ -28,26 +28,59 @@ class OpenedUnansweredQuestion extends Component {
 	console.log(question['optionOne']['votes'].includes(authedUser))
 		return (
 			<div className='tweet'>
-				<form>
-					<h3>Would You Rather</h3>
-					<img
-						src={users[author].avatarURL}
-						alt={`Avatar of ${author}`}
-						className='avatar'
-					/>
-					<button className='btn' onClick={this.handleSave} value='optionOne'>
-						{optionOne.text}
-					</button>
-					<button className='btn' onClick={this.handleSave} value='optionTwo'>
-						{optionTwo.text}
-					</button>
-				</form>
 				{
 					question['optionOne']['votes'].includes(authedUser)
-					?<div>You choosed option 1</div>
+					?<div>
+						<h3>Would You Rather</h3>
+						<img
+							src={users[author].avatarURL}
+							alt={`Avatar of ${author}`}
+							className='avatar'
+						/>
+						<button className='choose btn'>
+							{optionOne.text}<br/>
+							{question['optionOne']['votes'].length} of {question['optionOne']['votes'].length + question['optionTwo']['votes'].length }<br/>
+							{question['optionOne']['votes'].length/(question['optionOne']['votes'].length + question['optionTwo']['votes'].length )*100}%
+						</button>
+						<button className='btn' disabled>
+							{optionTwo.text}<br/>
+							{question['optionTwo']['votes'].length} of {question['optionOne']['votes'].length + question['optionTwo']['votes'].length }<br/>
+							{question['optionTwo']['votes'].length/(question['optionOne']['votes'].length + question['optionTwo']['votes'].length )*100}%
+						</button>
+					</div>
 					:question['optionTwo']['votes'].includes(authedUser)
-					?<div>You choosed option 2</div>
-					:<div></div>
+					?<div>
+						<h3>Would You Rather</h3>
+						<img
+							src={users[author].avatarURL}
+							alt={`Avatar of ${author}`}
+							className='avatar'
+						/>
+						<button className='btn'>
+							{optionOne.text}<br/>
+							{question['optionOne']['votes'].length} of {question['optionOne']['votes'].length + question['optionTwo']['votes'].length }<br/>
+							{question['optionOne']['votes'].length/(question['optionOne']['votes'].length + question['optionTwo']['votes'].length )*100}%
+						</button>
+						<button className='choose btn' disabled>
+							{optionTwo.text}<br/>
+							{question['optionTwo']['votes'].length} of {question['optionOne']['votes'].length + question['optionTwo']['votes'].length }<br/>
+							{question['optionTwo']['votes'].length/(question['optionOne']['votes'].length + question['optionTwo']['votes'].length )*100}%
+						</button>
+					 </div>
+					:<form>
+						<h3>Would You Rather</h3>
+						<img
+							src={users[author].avatarURL}
+							alt={`Avatar of ${author}`}
+							className='avatar'
+						/>
+						<button className='btn' onClick={this.handleSave} value='optionOne'>
+							{optionOne.text}
+						</button>
+						<button className='btn' onClick={this.handleSave} value='optionTwo'>
+							{optionTwo.text}
+						</button>
+					 </form>
 				}
 			</div>
 		)
