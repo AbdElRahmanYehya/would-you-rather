@@ -4,7 +4,7 @@ import { formatQuestion } from '../utils/_DATA'
 import ClosedUnansweredQuestion from './ClosedUnansweredQuestion'
 import { handleSaveAnswer } from '../actions/questions'
 
-class OpenedUnansweredQuestion extends Component {
+class OpenedAnsweredQuestion extends Component {
 	handleSave = (e) => {
 		e.preventDefault()
 		const answer =  e.target.value
@@ -18,14 +18,14 @@ class OpenedUnansweredQuestion extends Component {
 		}))
 	}
 	render() {
-	const { authedUser, question, users, id  } = this.props
+	const { question,users } = this.props
 	// mfrod nbdl question el t7t b el format da
 	// formatQuestion(question.optionOne, question.optionTwo, question.author)
 	const {
 		author, name, avatarURL, timestamp, optionOne, optionTwo
 	} = question
-	console.log(question['optionOne']['votes'])
-	console.log(question['optionOne']['votes'].includes(authedUser))
+	console.log(this.props)
+	const {id} = this.props
 		return (
 			<div className='tweet'>
 				<form>
@@ -42,13 +42,6 @@ class OpenedUnansweredQuestion extends Component {
 						{optionTwo.text}
 					</button>
 				</form>
-				{
-					question['optionOne']['votes'].includes(authedUser)
-					?<div>You choosed option 1</div>
-					:question['optionTwo']['votes'].includes(authedUser)
-					?<div>You choosed option 2</div>
-					:<div></div>
-				}
 			</div>
 		)
 	}
@@ -65,6 +58,4 @@ function mapStateToProps ({authedUser, questions, users}, props) {
 	}
 }
 
-export default connect(mapStateToProps)(OpenedUnansweredQuestion)
-
-//question['optionOne']['votes'].inclueds(authedUser)
+export default connect(mapStateToProps)(OpenedAnsweredQuestion)
