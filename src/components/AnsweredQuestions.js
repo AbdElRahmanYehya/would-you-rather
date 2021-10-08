@@ -37,7 +37,6 @@ function mapStateToProps ({ authedUser, users, questions }) {
 		  }
 		}
 	}
-	console.log("bye :", answeredIds)
 	return {
 		questionsIds: answeredIds,
 		authedUser,

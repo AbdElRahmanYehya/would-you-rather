@@ -151,8 +151,6 @@ export function _saveQuestion (question) {
   return new Promise((res, rej) => {
     const authedUser = question.author;
     const formattedQuestion = formatQuestion(question);
-    console.log('hello from the data 2: ', questions)
-    console.log('hello from the data 2: ', users)
     setTimeout(() => {
       questions = {
         ...questions,
@@ -173,7 +171,6 @@ export function _saveQuestion (question) {
 }
 
 export function _saveQuestionAnswer ({ authedUser, qid, answer }) {
-  console.log("from data: ",authedUser)
   return new Promise((res, rej) => {
     setTimeout(() => {
       users = {

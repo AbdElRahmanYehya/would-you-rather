@@ -6,9 +6,7 @@ class OpenedQuestion extends Component {
 	handleSave = (e) => {
 		e.preventDefault()
 		const answer =  e.target.value
-		console.log("value: ", answer)
 		const {dispatch, question, authedUser} = this.props
-		console.log("from opened unans: ",question.id)
 		dispatch(handleSaveAnswer({
 			qid: question.id,
 			answer: answer,

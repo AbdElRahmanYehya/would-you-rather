@@ -17,14 +17,11 @@ class App extends Component {
   }
     handleLogout = (e) => {
     e.preventDefault()
-
     const { dispatch } = this.props
 
-    console.log(' nhark lazeez ')
     dispatch(setAuthedUser(null))
   }
   render() {
-    console.log(this.props.authedUser)
     return (
       <Router>
         <div className='container'>

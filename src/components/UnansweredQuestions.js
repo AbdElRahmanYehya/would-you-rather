@@ -40,7 +40,6 @@ function mapStateToProps ({ authedUser, users, questions }) {
 			answeredIds.push(questionsIds[i])
 		}
 	}
-	console.log("bye :", answeredIds)
 	return {
 		questionsIds: answeredIds,
 		authedUser,

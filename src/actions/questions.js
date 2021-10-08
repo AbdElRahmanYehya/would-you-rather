@@ -14,7 +14,6 @@ function addQuestion (question) {
 export function handleAddQuestion (firstText, secondText) {
 	return (dispatch, getState) => {
 		const {authedUser} = getState()
-		console.log(authedUser)
 		return saveQuestion({ 
 			optionOneText: firstText, 
 			optionTwoText: secondText, 
@@ -32,7 +31,6 @@ export function receiveQuestions (questions) {
 }
 
 function saveAnswer ( {qid, authedUser, answer} ) {
-	console.log('from question action ', qid)
 	return {
 		type: SAVE_ANSWER,
 		id: qid,
@@ -42,7 +40,6 @@ function saveAnswer ( {qid, authedUser, answer} ) {
 }
 
 export function handleSaveAnswer (info) {
-	console.log('from handle action ', info)
 	return (dispatch) => {
 		dispatch(saveAnswer(info))
 
