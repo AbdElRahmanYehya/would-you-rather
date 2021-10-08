@@ -21,9 +21,7 @@ class OpenedAnsweredQuestion extends Component {
 	const { question,users } = this.props
 	// mfrod nbdl question el t7t b el format da
 	// formatQuestion(question.optionOne, question.optionTwo, question.author)
-	const {
-		author, name, avatarURL, timestamp, optionOne, optionTwo
-	} = question
+
 	console.log(this.props)
 	const {id} = this.props
 		return (
@@ -31,15 +29,15 @@ class OpenedAnsweredQuestion extends Component {
 				<form>
 					<h3>Would You Rather</h3>
 					<img
-						src={users[author].avatarURL}
-						alt={`Avatar of ${author}`}
+						src={users[question.author].avatarURL}
+						alt={`Avatar of ${question.author}`}
 						className='avatar'
 					/>
 					<button className='btn' onClick={this.handleSave} value='optionOne'>
-						{optionOne.text}
+						{question.optionOne.text}
 					</button>
 					<button className='btn' onClick={this.handleSave} value='optionTwo'>
-						{optionTwo.text}
+						{question.optionTwo.text}
 					</button>
 				</form>
 			</div>

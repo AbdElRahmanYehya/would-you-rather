@@ -35,8 +35,8 @@ class HomePage extends Component {
 	render() {
 		const { answered } = this.state
 		return (
-			<div>
-				<h3 className='center'>All questions</h3>
+			<div className='center'>
+				<h3>All questions</h3>
 				<button className='btn' onClick={this.showAnswered}>
 					Answered Questions
 				</button>

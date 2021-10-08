@@ -19,31 +19,31 @@ class OpenedUnansweredQuestion extends Component {
 	}
 	render() {
 	const { authedUser, question, users, id  } = this.props
-	// mfrod nbdl question el t7t b el format da
-	// formatQuestion(question.optionOne, question.optionTwo, question.author)
-	const {
-		author, name, avatarURL, timestamp, optionOne, optionTwo
-	} = question
-	console.log(question['optionOne']['votes'])
-	console.log(question['optionOne']['votes'].includes(authedUser))
+	const isUndefined = (typeof question === 'undefined')
+
 		return (
-			<div className='tweet'>
+			<div>
+				{
+					isUndefined === true
+					?<h3 className='center'>404 page not found</h3>
+					:
+					<div className='tweet'>
 				{
 					question['optionOne']['votes'].includes(authedUser)
 					?<div>
 						<h3>Would You Rather</h3>
 						<img
-							src={users[author].avatarURL}
-							alt={`Avatar of ${author}`}
+							src={users[question.author].avatarURL}
+							alt={`Avatar of ${question.author}`}
 							className='avatar'
 						/>
 						<button className='choose btn'>
-							{optionOne.text}<br/>
+							{question.optionOne.text}<br/>
 							{question['optionOne']['votes'].length} of {question['optionOne']['votes'].length + question['optionTwo']['votes'].length }<br/>
 							{question['optionOne']['votes'].length/(question['optionOne']['votes'].length + question['optionTwo']['votes'].length )*100}%
 						</button>
 						<button className='btn' disabled>
-							{optionTwo.text}<br/>
+							{question.optionTwo.text}<br/>
 							{question['optionTwo']['votes'].length} of {question['optionOne']['votes'].length + question['optionTwo']['votes'].length }<br/>
 							{question['optionTwo']['votes'].length/(question['optionOne']['votes'].length + question['optionTwo']['votes'].length )*100}%
 						</button>
@@ -52,17 +52,17 @@ class OpenedUnansweredQuestion extends Component {
 					?<div>
 						<h3>Would You Rather</h3>
 						<img
-							src={users[author].avatarURL}
-							alt={`Avatar of ${author}`}
+							src={users[question.author].avatarURL}
+							alt={`Avatar of ${question.author}`}
 							className='avatar'
 						/>
 						<button className='btn'>
-							{optionOne.text}<br/>
+							{question.optionOne.text}<br/>
 							{question['optionOne']['votes'].length} of {question['optionOne']['votes'].length + question['optionTwo']['votes'].length }<br/>
 							{question['optionOne']['votes'].length/(question['optionOne']['votes'].length + question['optionTwo']['votes'].length )*100}%
 						</button>
 						<button className='choose btn' disabled>
-							{optionTwo.text}<br/>
+							{question.optionTwo.text}<br/>
 							{question['optionTwo']['votes'].length} of {question['optionOne']['votes'].length + question['optionTwo']['votes'].length }<br/>
 							{question['optionTwo']['votes'].length/(question['optionOne']['votes'].length + question['optionTwo']['votes'].length )*100}%
 						</button>
@@ -70,17 +70,19 @@ class OpenedUnansweredQuestion extends Component {
 					:<form>
 						<h3>Would You Rather</h3>
 						<img
-							src={users[author].avatarURL}
-							alt={`Avatar of ${author}`}
+							src={users[question.author].avatarURL}
+							alt={`Avatar of ${question.author}`}
 							className='avatar'
 						/>
 						<button className='btn' onClick={this.handleSave} value='optionOne'>
-							{optionOne.text}
+							{question.optionOne.text}
 						</button>
 						<button className='btn' onClick={this.handleSave} value='optionTwo'>
-							{optionTwo.text}
+							{question.optionTwo.text}
 						</button>
 					 </form>
+				}
+			</div>
 				}
 			</div>
 		)

@@ -49,7 +49,7 @@ export function handleSaveAnswer (info) {
 		return saveQuestionAnswer(info)
 			.catch((e) => {
 				console.warn('Error')
-				dispatch(saveAnswer)
+				dispatch(saveAnswer(info))
 				alert("error")
 			})
 	}
