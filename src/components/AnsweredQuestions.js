@@ -25,7 +25,7 @@ class AnsweredQuestions extends Component {
 function mapStateToProps ({ authedUser, users, questions }) {
 	console.log("hi :", Object.keys(questions).length)
 
-	const questionsIds = Object.keys(questions)
+	const questionsIds = Object.keys(questions).sort((a,b) => questions[b].timestamp - questions[a].timestamp)
 	const answeredIds = []
 	for(let i = 0; i < questionsIds.length; i++) {
 		for (let j = 0; j < questions[questionsIds[i]].optionOne.votes.length; j++) {

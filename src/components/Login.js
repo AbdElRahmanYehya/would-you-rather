@@ -25,7 +25,7 @@ class Login extends Component {
 		if (toHome === true) {
 			return <Redirect to='/'/>
 		}
-
+		console.log(window.location.pathname)
 		return (
 			<div className='center'>
 				<h2>Login</h2>

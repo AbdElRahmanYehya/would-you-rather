@@ -44,7 +44,7 @@ class NewQuestion extends Component {
 	render() {
 		const {firstText, secondText, toHome} = this.state
 		const tweetLeft = 60 - firstText.length
-
+		
 		if (toHome === true) {
 			return <Redirect to='/'/>
 		}

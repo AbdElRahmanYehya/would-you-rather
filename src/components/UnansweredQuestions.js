@@ -23,7 +23,7 @@ class UnansweredQuestions extends Component {
 }
 
 function mapStateToProps ({ authedUser, users, questions }) {
-	const questionsIds = Object.keys(questions)
+	const questionsIds = Object.keys(questions).sort((a,b) => questions[b].timestamp - questions[a].timestamp)
 	const answeredIds = []
 	for(let i = 0; i < questionsIds.length; i++) {
 		let flag = 0

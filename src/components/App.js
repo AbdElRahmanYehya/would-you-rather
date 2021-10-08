@@ -15,14 +15,19 @@ class App extends Component {
   	this.props.dispatch(handleInitialData())
   }
   render() {
+    console.log(this.props.authedUser)
     return (
       <Router>
         <div className='container'>
           <Nav />
           {this.props.loading === true
-            ? null
+            ? <div>
+                  <Route path='/' exact component={Login}/>
+                  <Route path='/questions/:id' exact component={Login}/>
+                  <Route path='/add' exact component={Login}/>
+                  <Route path='/leaderboard' exact component={Login}/>
+              </div>
             : <div>
-                <Route path='/login' exact component={Login}/>
                 <Route path='/' exact component={HomePage}/>
                 <Route path='/questions/:id' exact component={OpenedUnansweredQuestion}/>
                 <Route path='/add' exact component={NewQuestion}/>
@@ -41,4 +46,4 @@ function mapStateToProps({ authedUser }) {
   }
 }
 
-export default connect()(App)
+export default connect(mapStateToProps)(App)
