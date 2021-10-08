@@ -1,23 +1,17 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux'
-import { formatQuestion } from '../utils/_DATA'
 import { withRouter } from 'react-router-dom'
 
 class ClosedQuestion extends Component {
 	handleSubmit = (e) => {
 		e.preventDefault()
-
-		const {dispatch, id} = this.props
-		console.log('id is :', id)
+		const {id } = this.props
 		this.props.history.push(`/questions/${id}`)
 	}
-
 	render() {
 		const { question, users } = this.props
-		// mfrod nbdl question el t7t b el format da
-		// formatQuestion(question.optionOne, question.optionTwo, question.author)
 		const {
-			author, name, avatarURL, timestamp, optionOne, optionTwo
+			author, optionOne,
 		} = question
 
 		return (

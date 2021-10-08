@@ -8,29 +8,18 @@ class HomePage extends Component {
 	state = {
 		answered: false,
 	}
-
 	showAnswered = (e) => {
 		e.preventDefault()
-
-		const {dispatch, id} = this.props
-		console.log('id is :', id)
-
 		this.setState(() => ({
 			answered: true,
 		}))
 	}
-
 	showUnanswered = (e) => {
 		e.preventDefault()
-
-		const {dispatch, id} = this.props
-		console.log('id is :', id)
-
 		this.setState(() => ({
 			answered: false,
 		}))
 	}
-
 	render() {
 		const { answered } = this.state
 		return (

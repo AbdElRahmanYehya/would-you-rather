@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux'
-import { formatQuestion } from '../utils/_DATA'
 import { handleSaveAnswer } from '../actions/questions'
 
 class OpenedQuestion extends Component {
@@ -17,7 +16,7 @@ class OpenedQuestion extends Component {
 		}))
 	}
 	render() {
-	const { authedUser, question, users, id  } = this.props
+	const { authedUser, question, users  } = this.props
 	const isUndefined = (typeof question === 'undefined')
 
 		return (
@@ -100,5 +99,3 @@ function mapStateToProps ({authedUser, questions, users}, props) {
 }
 
 export default connect(mapStateToProps)(OpenedQuestion)
-
-//question['optionOne']['votes'].inclueds(authedUser)

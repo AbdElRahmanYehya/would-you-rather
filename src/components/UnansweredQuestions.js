@@ -4,8 +4,6 @@ import ClosedQuestion from './ClosedQuestion'
 
 class UnansweredQuestions extends Component {
 	render() {
-		const { questions } = this.props
-		// bdal el map di n3ml w7da bel questions bs 3shan n3rf hal kol wa7d leh votes wla la2
 		return (
 			<div>
 				<h3 className='center'>Unanswered Questions</h3>

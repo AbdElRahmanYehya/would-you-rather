@@ -27,12 +27,9 @@ class NewQuestion extends Component {
 		e.preventDefault()
 
 		const {firstText, secondText} = this.state
-		const {dispatch, id} = this.props
-		console.log('id is :', id)
-		console.log('firstText is: ', firstText)
-		dispatch(handleAddQuestion(firstText, secondText))
+		const { dispatch } = this.props
 
-		//console.log('nex tweet: ',text)
+		dispatch(handleAddQuestion(firstText, secondText))
 
 		this.setState(() => ({
 			firstText: '',
@@ -43,7 +40,7 @@ class NewQuestion extends Component {
 
 	render() {
 		const {firstText, secondText, toHome} = this.state
-		const tweetLeft = 60 - firstText.length
+		const spaceLeft = 60 - firstText.length
 		
 		if (toHome === true) {
 			return <Redirect to='/'/>
@@ -68,9 +65,9 @@ class NewQuestion extends Component {
 						className='textarea'
 						maxLength={60}
 					/>
-					{tweetLeft <= 20 && (
+					{spaceLeft <= 20 && (
 						<div className='tweet-length'>
-						 	{tweetLeft}
+						 	{spaceLeft}
 						</div>
 					)}
 					<button className='btn' type='submit' disabled={firstText === '' || secondText === ''}>
