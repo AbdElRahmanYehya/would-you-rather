@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { handleInitialData } from '../actions/shared'
 import HomePage from './HomePage'
 import AnsweredQuestions from './AnsweredQuestions'
-import OpenedUnansweredQuestion from './OpenedUnansweredQuestion'
+import OpenedQuestion from './OpenedQuestion'
 import NewQuestion from './NewQuestion'
 import Leaderboard from './Leaderboard'
 import Login from './Login'
@@ -45,7 +45,7 @@ class App extends Component {
                   Welcome back {this.props.users[this.props.authedUser].name}
                 </li>
                 <Route path='/' exact component={HomePage}/>
-                <Route path='/questions/:id' exact component={OpenedUnansweredQuestion}/>
+                <Route path='/questions/:id' exact component={OpenedQuestion}/>
                 <Route path='/add' exact component={NewQuestion}/>
                 <Route path='/leaderboard' exact component={Leaderboard}/>
               </div>

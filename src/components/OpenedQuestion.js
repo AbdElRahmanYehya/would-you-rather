@@ -1,10 +1,9 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux'
 import { formatQuestion } from '../utils/_DATA'
-import ClosedUnansweredQuestion from './ClosedUnansweredQuestion'
 import { handleSaveAnswer } from '../actions/questions'
 
-class OpenedUnansweredQuestion extends Component {
+class OpenedQuestion extends Component {
 	handleSave = (e) => {
 		e.preventDefault()
 		const answer =  e.target.value
@@ -100,6 +99,6 @@ function mapStateToProps ({authedUser, questions, users}, props) {
 	}
 }
 
-export default connect(mapStateToProps)(OpenedUnansweredQuestion)
+export default connect(mapStateToProps)(OpenedQuestion)
 
 //question['optionOne']['votes'].inclueds(authedUser)

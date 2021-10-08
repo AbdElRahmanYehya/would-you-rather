@@ -1,6 +1,5 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
-import Question from './Question'
 import AnsweredQuestions from './AnsweredQuestions'
 import UnansweredQuestions from './UnansweredQuestions'
 

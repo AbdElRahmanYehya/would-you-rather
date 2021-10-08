@@ -3,7 +3,7 @@ import {connect} from 'react-redux'
 import { formatQuestion } from '../utils/_DATA'
 import { withRouter } from 'react-router-dom'
 
-class ClosedUnansweredQuestion extends Component {
+class ClosedQuestion extends Component {
 	handleSubmit = (e) => {
 		e.preventDefault()
 
@@ -48,4 +48,4 @@ function mapStateToProps ({ authedUser, users, questions }, { id }) {
 	}
 }
 
-export default withRouter(connect(mapStateToProps)(ClosedUnansweredQuestion))
+export default withRouter(connect(mapStateToProps)(ClosedQuestion))
